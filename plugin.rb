@@ -33,7 +33,7 @@ class ::LDAPAuthenticator < ::Auth::Authenticator
         env["omniauth.strategy"].options.merge!(
           host: SiteSetting.ldap_hostname,
           port: SiteSetting.ldap_port,
-          method: SiteSetting.ldap_method,
+          encryption: :start_tls,
           base: SiteSetting.ldap_base,
           uid: SiteSetting.ldap_uid,
           # In 0.3.0, we fixed a typo in the ldap_bind_dn config name. This fallback will be removed in a future version.
